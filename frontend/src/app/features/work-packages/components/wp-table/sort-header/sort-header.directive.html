@@ -2,16 +2,6 @@
   @switch (columnType) {
     @case ('hierarchy') {
       <span class="generic-table--sort-header">
-        @if (displayHierarchyIcon) {
-          <span
-            class="hierarchy-header--icon"
-            (click)="toggleHierarchy($event)"
-            [attr.title]="text.toggleHierarchy"
-            tabindex="-1"
-            aria-hidden="true">
-            <op-icon icon-classes="icon {{ hierarchyIcon }}" />
-          </span>
-        }
         <!--suppress XmlDuplicatedId -->
         @if (sortable) {
           <a href="#"
