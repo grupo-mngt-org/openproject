@@ -1,0 +1,56 @@
+@if (hasSprintsFeature) {
+  <div class="op-sprint-filter" [class.-open]="isOpen">
+    <button
+      class="button -small op-sprint-filter--trigger"
+      [class.-active]="isActive"
+      (click)="toggleDropdown($event)"
+    >
+      <i class="button--icon icon-milestone"></i>
+      <span class="button--text">{{ label }}</span>
+      <i class="button--icon icon-small icon-arrow-down2"></i>
+    </button>
+
+    @if (isOpen) {
+      <div class="op-sprint-filter--dropdown" (click)="$event.stopPropagation()">
+
+        @if (sprintsLoading) {
+          <div class="op-sprint-filter--loading">{{ text.loading }}</div>
+        } @else {
+          <ul class="op-sprint-filter--list">
+
+            <li
+              class="op-sprint-filter--item -all"
+              [class.-selected]="!isActive"
+              (click)="clearSprint()"
+            >
+              <span class="op-sprint-filter--name">{{ text.allSprints }}</span>
+              @if (!isActive) {
+                <i class="icon-checkmark op-sprint-filter--check"></i>
+              }
+            </li>
+
+            <hr class="op-sprint-filter--divider" />
+
+            @for (sprint of sprints; track sprint.href) {
+              <li
+                class="op-sprint-filter--item"
+                [class.-selected]="isSelected(sprint)"
+                (click)="select(sprint)"
+              >
+                <span class="op-sprint-filter--name">{{ sprint.name }}</span>
+                <span
+                  class="op-sprint-filter--badge"
+                  [class.-active]="isActiveSprint(sprint)"
+                >{{ statusLabel(sprint) }}</span>
+                @if (isSelected(sprint)) {
+                  <i class="icon-checkmark op-sprint-filter--check"></i>
+                }
+              </li>
+            }
+
+          </ul>
+        }
+      </div>
+    }
+  </div>
+}

@@ -24,6 +24,10 @@ module ::Boards
     end
 
     def show
+      if @board_grid.linked_type == "Agile::Sprint"
+        redirect_to kanban_project_work_package_boards_path(@project) and return
+      end
+
       render
     end
 
@@ -96,6 +100,14 @@ module ::Boards
         format.html do
           redirect_to action: "index", project_id: @project
         end
+      end
+    end
+
+    def current_menu_item
+      if action_name == "show" && @board_grid&.is_default_kanban?
+        :kanban
+      else
+        super
       end
     end
 

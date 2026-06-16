@@ -38,6 +38,7 @@ import { AddListModalComponent } from 'core-app/features/boards/board/add-list-m
 import { BoardHighlightingTabComponent } from 'core-app/features/boards/board/configuration-modal/tabs/highlighting-tab.component';
 import { AddCardDropdownMenuDirective } from 'core-app/features/boards/board/add-card-dropdown/add-card-dropdown-menu.directive';
 import { BoardFilterComponent } from 'core-app/features/boards/board/board-filter/board-filter.component';
+import { SprintBoardFilterComponent } from 'core-app/features/boards/board/board-filter/sprint-board-filter/sprint-board-filter.component';
 import { BoardListMenuComponent } from 'core-app/features/boards/board/board-list/board-list-menu.component';
 import { VersionBoardHeaderComponent } from 'core-app/features/boards/board/board-actions/version/version-board-header.component';
 import { DynamicModule } from 'ng-dynamic-component';
@@ -77,6 +78,7 @@ import { OpenprojectEnterpriseModule } from 'core-app/features/enterprise/openpr
     AddCardDropdownMenuDirective,
     BoardListMenuComponent,
     BoardFilterComponent,
+    SprintBoardFilterComponent,
     VersionBoardHeaderComponent,
     AssigneeBoardHeaderComponent,
     SubprojectBoardHeaderComponent,

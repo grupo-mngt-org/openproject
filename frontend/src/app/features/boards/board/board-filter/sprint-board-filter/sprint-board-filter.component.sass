@@ -1,0 +1,89 @@
+.op-sprint-filter
+  position: relative
+  display: inline-block
+
+.op-sprint-filter--trigger
+  display: inline-flex
+  align-items: center
+  gap: 4px
+
+  &.-active
+    background: var(--color-accent-muted, #1f3a5f)
+    border-color: var(--color-accent-emphasis, #1f6feb)
+    color: var(--color-fg-default, #e6edf3)
+
+.op-sprint-filter--dropdown
+  position: absolute
+  top: calc(100% + 4px)
+  left: 0
+  z-index: 1000
+  min-width: 230px
+  max-height: 320px
+  overflow-y: auto
+  background: var(--color-canvas-overlay, #2d333b)
+  border: 1px solid var(--color-border-default, #444c56)
+  border-radius: 6px
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4)
+  padding: 4px 0
+
+.op-sprint-filter--divider
+  border: none
+  border-top: 1px solid var(--color-border-muted, #30363d)
+  margin: 4px 0
+
+.op-sprint-filter--list
+  list-style: none
+  margin: 0
+  padding: 0
+
+.op-sprint-filter--item
+  display: flex
+  align-items: center
+  gap: 8px
+  padding: 6px 12px
+  cursor: pointer
+  color: var(--color-fg-default, #e6edf3)
+  font-size: 13px
+
+  &:hover
+    background: var(--color-canvas-subtle, #1c2128)
+
+  &.-selected
+    background: rgba(31, 111, 235, 0.1)
+
+  &.-all
+    color: var(--color-fg-muted, #8b949e)
+
+    &.-selected
+      color: var(--color-fg-default, #e6edf3)
+
+.op-sprint-filter--name
+  flex: 1
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+.op-sprint-filter--badge
+  font-size: 10px
+  font-weight: 600
+  padding: 2px 6px
+  border-radius: 10px
+  background: var(--color-neutral-muted, #6e7681)
+  color: #fff
+  flex-shrink: 0
+  text-transform: uppercase
+  letter-spacing: 0.3px
+
+  &.-active
+    background: var(--color-success-emphasis, #238636)
+
+.op-sprint-filter--check
+  color: var(--color-accent-emphasis, #1f6feb)
+  font-size: 12px
+  flex-shrink: 0
+
+.op-sprint-filter--loading
+  padding: 12px
+  color: var(--color-fg-muted, #8b949e)
+  font-size: 13px
+  text-align: center
